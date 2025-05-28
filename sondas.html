@@ -1,0 +1,182 @@
+<style>
+  .table-comparativo {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: 'Poppins', sans-serif;
+    margin: 30px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 8px;
+  }
+  .table-comparativo caption {
+    caption-side: top;
+    background: #2A9DF4;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 600;
+    padding: 16px;
+    text-align: left;
+  }
+  .table-comparativo th {
+    background-color: #0370B7;
+    color: #fff;
+    padding: 14px 12px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.03em;
+  }
+  .table-comparativo td {
+    background-color: #fff;
+    color: #333;
+    padding: 14px 12px;
+    font-size: 0.9em;
+  }
+  .table-comparativo tr {
+    transition: background-color 0.3s;
+  }
+  .table-comparativo tr:nth-child(even) td {
+    background-color: #f7fbfe;
+  }
+  .table-comparativo tr:hover td {
+    background-color: #e4f1fa;
+  }
+  .table-comparativo td {
+    border-bottom: 1px solid #e0e6eb;
+  }
+</style>
+
+<table class="table-comparativo">
+  <caption>Comparativo de Sondas Ecográficas</caption>
+  <thead>
+    <tr>
+      <th>Tipo de sonda</th>
+      <th>Frecuencia*<br>(MHz)</th>
+      <th>Huella*<br>(cm)</th>
+      <th>Penetración<br>(cm)</th>
+      <th>Ventajas</th>
+      <th>Limitaciones</th>
+      <th>Usos en acceso vascular</th>
+      <th>Otras aplicaciones</th>
+      <th>Cómo se visualiza</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Lineal</strong></td>
+      <td>7 – 18 (alta)</td>
+      <td>3 – 6 (estrecha y recta)</td>
+      <td>1 – 4<br>(hasta 6 con menor frecuencia)</td>
+      <td>
+        • Excelente resolución axial y lateral.<br>
+        • Imagen nítida de estructuras superficiales.
+      </td>
+      <td>
+        • Baja penetración en tejidos profundos.
+      </td>
+      <td>
+        • Venas periféricas (cefálica, basílica, yugular externa).<br>
+        • Guía precisa de catéteres periféricos y PICCs.<br>
+        • Detección de trombos en venas superficiales.
+      </td>
+      <td>
+        • Musculoesquelético (tendones, ligamentos).<br>
+        • Tiroides y glándulas salivales.<br>
+        • Biopsias superficiales.
+      </td>
+      <td>Rectángulo paralelo: imagen con bordes rectos, ideal para zonas superficiales.</td>
+    </tr>
+    <tr>
+      <td><strong>Convexa</strong><br>(Curvilínea)</td>
+      <td>2 – 6 (media-baja)</td>
+      <td>5 – 8 (curva)</td>
+      <td>10 – 30</td>
+      <td>
+        • Campo de visión ancho (“ventana” curva).<br>
+        • Buena penetración en tejidos profundos.
+      </td>
+      <td>
+        • Menor resolución para estructuras finas.
+      </td>
+      <td>
+        • Accesos centrales profundos (subclavia, vena cava).<br>
+        • Evaluación de anatomía torácica previa.
+      </td>
+      <td>
+        • Ecografía abdominal y pélvica.<br>
+        • Obstetricia y ginecología.<br>
+        • Exploración hepática, renal y peritoneal.
+      </td>
+      <td>Sector amplio: visión arqueada, abarca más área profunda.</td>
+    </tr>
+    <tr>
+      <td><strong>Sectorial</strong><br>(Phased Array)</td>
+      <td>1 – 5 (baja)</td>
+      <td>1.5 – 3<br>(pequeña)</td>
+      <td>10 – 35</td>
+      <td>
+        • Excelente penetración en tejidos profundos y hueso.<br>
+        • Ángulo de barrido variable.
+      </td>
+      <td>
+        • Resolución superficial reducida.
+      </td>
+      <td>
+        • Punción en región infraclavicular o yugular interna.<br>
+        • Control de posición de catéteres centrales en tórax.
+      </td>
+      <td>
+        • Ecocardiografía.<br>
+        • FAST abdominal y urgencias.<br>
+        • Ecografía pediátrica transcraneal.
+      </td>
+      <td>Cuña estrecha: panel triangular que penetra en espacios confinados.</td>
+    </tr>
+    <tr>
+      <td><strong>Microconvexa</strong></td>
+      <td>5 – 8 (media)</td>
+      <td>2 – 4 (compacta)</td>
+      <td>5 – 15</td>
+      <td>
+        • Buena resolución y penetración moderada.<br>
+        • Perfil estrecho para espacios reducidos.
+      </td>
+      <td>
+        • Campo de visión limitado vs convexa clásica.
+      </td>
+      <td>
+        • Accesos neonatales y pediátricos.<br>
+        • Guía en zonas anatómicas pequeñas.
+      </td>
+      <td>
+        • Ecografía neonatal.<br>
+        • Exploración transcraneal (fontanela).<br>
+        • Intervencionismo en lactantes.
+      </td>
+      <td>Sector mediano: similar al convexa pero más estrecho.</td>
+    </tr>
+    <tr>
+      <td><strong>Endocavitaria</strong><br>(Transvaginal/Transrectal)</td>
+      <td>5 – 12 (media-alta)</td>
+      <td>2 – 3 (cilíndrica)</td>
+      <td>5 – 10</td>
+      <td>
+        • Resolución muy alta de estructuras internas.<br>
+        • Contacto cercano con órganos.
+      </td>
+      <td>
+        • Uso especializado e invasivo.
+      </td>
+      <td>
+        • No aplicable en accesos vasculares.
+      </td>
+      <td>
+        • Ecografía transvaginal y transrectal.<br>
+        • Biopsias guiadas gineco-urológicas.
+      </td>
+      <td>Cilíndrico: imagen vertical estrecha en profundidad.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="font-size:0.85em; color:#555; margin-top:8px;">* <strong>Huella:</strong> Superficie de contacto de la sonda sobre la piel, determina el espacio de ventana acústica disponible para la exploración.<br>* <strong>Frecuencia:</strong> Número de ciclos de onda emitidos por segundo; frecuencias altas ofrecen mayor resolución superficial y bajas permiten mayor penetración en tejidos profundos.</p>
