@@ -51,51 +51,24 @@
       display: block;
       margin: 0 auto;
     }
-    button {
-      margin: 0 8px 16px 0;
+    .download-button {
+      display: inline-block;
+      margin-bottom: 16px;
       padding: 10px 20px;
       background: #2A9DF4;
       color: #fff;
-      border: none;
+      text-decoration: none;
       border-radius: 4px;
-      cursor: pointer;
       font-family: 'Poppins', sans-serif;
       font-size: 1em;
     }
   </style>
 </head>
 <body>
-  <!-- Librerías para exportar -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script>
-    // Exportar como imagen PNG
-    function exportToImage() {
-      const table = document.querySelector('.table-comparativo');
-      html2canvas(table, { scale: 2, useCORS: true }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'comparativo_sondas.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-      });
-    }
-    // Exportar como PDF
-    async function exportToPDF() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' });
-      const table = document.querySelector('.table-comparativo');
-      const canvas = await html2canvas(table, { scale: 2, useCORS: true });
-      const imgData = canvas.toDataURL('image/png');
-      const imgProps = doc.getImageProperties(imgData);
-      const pdfWidth = doc.internal.pageSize.getWidth() - 40;
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      doc.addImage(imgData, 'PNG', 20, 20, pdfWidth, pdfHeight);
-      doc.save('comparativo_sondas.pdf');
-    }
-  </script>
-
-  <button onclick="exportToImage()">Descargar comparativo como Imagen</button>
-  <button onclick="exportToPDF()">Descargar comparativo como PDF</button>
+  <!-- Botón único para descargar la imagen pre-generada -->
+  <a href="https://somnozzz.cl/wp-content/uploads/2025/05/sondas-scaled.jpg" download class="download-button">
+    Descargar comparativo de sondas (imagen)
+  </a>
 
   <table class="table-comparativo">
     <caption>Comparativo de Sondas Ecográficas</caption>
@@ -115,64 +88,64 @@
     </thead>
     <tbody>
       <tr>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/12.png" alt="Sonda Lineal" class="sonda-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/12.png" alt="Sonda Lineal" class="sonda-img"></td>
         <td><strong>Lineal</strong></td>
         <td>7 – 18 (alta)</td>
         <td>3 – 6 (estrecha y recta)</td>
-        <td>1 – 4 (hasta 6 con menor frecuencia)</td>
+        <td>1 – 4 (hasta 6)</td>
         <td>• Excelente resolución axial y lateral.<br>• Imagen nítida de estructuras superficiales.</td>
         <td>• Baja penetración en tejidos profundos.</td>
-        <td>• Venas periféricas (cefálica, basílica, yugular externa).<br>• Guía precisa de catéteres periféricos y PICCs.<br>• Detección de trombos en venas superficiales.</td>
-        <td>• Musculoesquelético (tendones, ligamentos).<br>• Tiroides y glándulas salivales.<br>• Biopsias superficiales.</td>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-16.png" alt="Visualización Lineal" class="vis-img"></td>
+        <td>• Venas periféricas (cefálica, basílica, yugular externa).<br>• Guía de catéteres periféricos y PICCs.<br>• Detección de trombos.</td>
+        <td>• Musculoesquelético; Tiroides; Biopsias superficiales.</td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-16.png" alt="Visualización Lineal" class="vis-img"></td>
       </tr>
       <tr>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/13.png" alt="Sonda Convexa" class="sonda-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/13.png" alt="Sonda Convexa" class="sonda-img"></td>
         <td><strong>Convexa</strong><br>(Curvilínea)</td>
         <td>2 – 6 (media-baja)</td>
         <td>5 – 8 (curva)</td>
         <td>10 – 30</td>
-        <td>• Campo de visión ancho<br>• Buena penetración en tejidos profundos.</td>
+        <td>• Campo de visión ancho.<br>• Buena penetración en tejidos profundos.</td>
         <td>• Menor resolución para estructuras finas.</td>
-        <td>• Accesos centrales profundos<br>• Evaluación de anatomía torácica previa.</td>
-        <td>• Ecografía abdominal<br>• Obstetricia y ginecología<br>• Exploración hepática, renal y peritoneal.</td>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Convexa" class="vis-img"></td>
+        <td>• Accesos centrales profundos; Evaluación torácica.</td>
+        <td>• Abdominal y pélvica; Obstetricia; Hepática y renal.</td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Convexa" class="vis-img"></td>
       </tr>
       <tr>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/14.png" alt="Sonda Sectorial" class="sonda-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/14.png" alt="Sonda Sectorial" class="sonda-img"></td>
         <td><strong>Sectorial</strong><br>(Phased Array)</td>
         <td>1 – 5 (baja)</td>
         <td>1.5 – 3 (pequeña)</td>
         <td>10 – 35</td>
-        <td>• Excelente penetración en tejidos profundos<br>• Ángulo de barrido variable.</td>
-        <td>• Resolución superficial reducida.</td>
-        <td>• Punción infraclavicular<br>• Control de posición de catéteres centrales.</td>
-        <td>• Ecocardiografía<br>• FAST abdominal y urgencias<br>• Pediatría transcraneal.</td>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-18.png" alt="Visualización Sectorial" class="vis-img"></td>
+        <td>• Excelente penetración; Ángulo variable.</td>
+        <td>• Resolución reducida.</td>
+        <td>• Punción infraclavicular; Control de catéteres.</td>
+        <td>• Ecocardiografía; FAST abdominal; Pediátrica transcraneal.</td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-18.png" alt="Visualización Sectorial" class="vis-img"></td>
       </tr>
       <tr>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/15.png" alt="Sonda Microconvexa" class="sonda-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/15.png" alt="Sonda Microconvexa" class="sonda-img"></td>
         <td><strong>Microconvexa</strong></td>
         <td>5 – 8 (media)</td>
         <td>2 – 4 (compacta)</td>
         <td>5 – 15</td>
-        <td>• Buena resolución<br>• Perfil estrecho.</td>
+        <td>• Buena resolución; Perfil estrecho.</td>
         <td>• Campo limitado vs convexa.</td>
-        <td>• Neonatal y pediatra<br>• Zonas pequeñas.</td>
-        <td>• Ecografía neonatal<br>• Transcraneal<br>• Intervencionismo.</td>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Microconvexa" class="vis-img"></td>
+        <td>• Neonatal y pediátrico.</td>
+        <td>• Neonatal; Transcraneal; Intervencionismo.</td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Microconvexa" class="vis-img"></td>
       </tr>
       <tr>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/16.png" alt="Sonda Endocavitaria" class="sonda-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/16.png" alt="Sonda Endocavitaria" class="sonda-img"></td>
         <td><strong>Endocavitaria</strong><br>(Transvaginal/Transrectal)</td>
         <td>5 – 12 (media-alta)</td>
         <td>2 – 3 (cilíndrica)</td>
         <td>5 – 10</td>
-        <td>• Muy alta resolución<br>• Contacto cercano.</td>
+        <td>• Muy alta resolución.<br>• Contacto cercano.</td>
         <td>• Uso invasivo.</td>
         <td>• No en vascular.</td>
-        <td>• Transvaginal<br>• Transrectal<br>• Biopsias.</td>
-        <td><img crossOrigin="anonymous" src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Endocavitaria" class="vis-img"></td>
+        <td>• Transvaginal; Transrectal; Biopsias.</td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Endocavitaria" class="vis-img"></td>
       </tr>
     </tbody>
   </table>
