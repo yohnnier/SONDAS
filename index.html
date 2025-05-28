@@ -61,14 +61,25 @@
       border-radius: 4px;
       font-family: 'Poppins', sans-serif;
       font-size: 1em;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <!-- Botón único para descargar la imagen pre-generada -->
-  <a href="https://somnozzz.cl/wp-content/uploads/2025/05/sondas-scaled.jpg" download class="download-button">
+  <button onclick="descargarImagen()" class="download-button">
     Descargar comparativo de sondas (imagen)
-  </a>
+  </button>
+
+  <script>
+    function descargarImagen() {
+      const link = document.createElement('a');
+      link.href = "https://somnozzz.cl/wp-content/uploads/2025/05/sondas-scaled.jpg";
+      link.download = "comparativo_sondas.jpg";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
 
   <table class="table-comparativo">
     <caption>Comparativo de Sondas Ecográficas</caption>
@@ -93,10 +104,10 @@
         <td>7 – 18 (alta)</td>
         <td>3 – 6 (estrecha y recta)</td>
         <td>1 – 4 (hasta 6)</td>
-        <td>• Excelente resolución axial y lateral.<br>• Imagen nítida de estructuras superficiales.</td>
-        <td>• Baja penetración en tejidos profundos.</td>
-        <td>• Venas periféricas (cefálica, basílica, yugular externa).<br>• Guía de catéteres periféricos y PICCs.<br>• Detección de trombos.</td>
-        <td>• Musculoesquelético; Tiroides; Biopsias superficiales.</td>
+        <td>Excelente resolución axial y lateral.<br>Imagen nítida de estructuras superficiales.</td>
+        <td>Baja penetración en tejidos profundos.</td>
+        <td>Venas periféricas (cefálica, basílica, yugular externa).<br>Guía de catéteres periféricos y PICCs.<br>Detección de trombos.</td>
+        <td>Musculoesquelético; Tiroides; Biopsias superficiales.</td>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-16.png" alt="Visualización Lineal" class="vis-img"></td>
       </tr>
       <tr>
@@ -105,10 +116,10 @@
         <td>2 – 6 (media-baja)</td>
         <td>5 – 8 (curva)</td>
         <td>10 – 30</td>
-        <td>• Campo de visión ancho.<br>• Buena penetración en tejidos profundos.</td>
-        <td>• Menor resolución para estructuras finas.</td>
-        <td>• Accesos centrales profundos; Evaluación torácica.</td>
-        <td>• Abdominal y pélvica; Obstetricia; Hepática y renal.</td>
+        <td>Campo de visión ancho.<br>Buena penetración en tejidos profundos.</td>
+        <td>Menor resolución para estructuras finas.</td>
+        <td>Accesos centrales profundos; Evaluación torácica.</td>
+        <td>Abdominal y pélvica; Obstetricia; Hepática y renal.</td>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Convexa" class="vis-img"></td>
       </tr>
       <tr>
@@ -117,10 +128,10 @@
         <td>1 – 5 (baja)</td>
         <td>1.5 – 3 (pequeña)</td>
         <td>10 – 35</td>
-        <td>• Excelente penetración; Ángulo variable.</td>
-        <td>• Resolución reducida.</td>
-        <td>• Punción infraclavicular; Control de catéteres.</td>
-        <td>• Ecocardiografía; FAST abdominal; Pediátrica transcraneal.</td>
+        <td>Excelente penetración; Ángulo variable.</td>
+        <td>Resolución reducida.</td>
+        <td>Punción infraclavicular; Control de catéteres.</td>
+        <td>Ecocardiografía; FAST abdominal; Pediátrica transcraneal.</td>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-18.png" alt="Visualización Sectorial" class="vis-img"></td>
       </tr>
       <tr>
@@ -129,10 +140,10 @@
         <td>5 – 8 (media)</td>
         <td>2 – 4 (compacta)</td>
         <td>5 – 15</td>
-        <td>• Buena resolución; Perfil estrecho.</td>
-        <td>• Campo limitado vs convexa.</td>
-        <td>• Neonatal y pediátrico.</td>
-        <td>• Neonatal; Transcraneal; Intervencionismo.</td>
+        <td>Buena resolución; Perfil estrecho.</td>
+        <td>Campo limitado vs convexa.</td>
+        <td>Neonatal y pediátrico.</td>
+        <td>Neonatal; Transcraneal; Intervencionismo.</td>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Microconvexa" class="vis-img"></td>
       </tr>
       <tr>
@@ -141,10 +152,10 @@
         <td>5 – 12 (media-alta)</td>
         <td>2 – 3 (cilíndrica)</td>
         <td>5 – 10</td>
-        <td>• Muy alta resolución.<br>• Contacto cercano.</td>
-        <td>• Uso invasivo.</td>
-        <td>• No en vascular.</td>
-        <td>• Transvaginal; Transrectal; Biopsias.</td>
+        <td>Muy alta resolución.<br>Contacto cercano.</td>
+        <td>Uso invasivo.</td>
+        <td>No en vascular.</td>
+        <td>Transvaginal; Transrectal; Biopsias.</td>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Endocavitaria" class="vis-img"></td>
       </tr>
     </tbody>
