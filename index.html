@@ -51,16 +51,31 @@
       display: block;
       margin: 0 auto;
     }
-    .vis-img-multiple {
-      max-width: 60px;
-      margin: 0 4px;
-    }
-    .vis-cell {
-      text-align: center;
-    }
   </style>
 </head>
 <body>
+  <!-- Librerías para exportar como PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    async function exportToPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'a4' });
+      const table = document.querySelector('.table-comparativo');
+      const canvas = await html2canvas(table, { scale: 2 });
+      const imgData = canvas.toDataURL('image/png');
+      const imgProps = doc.getImageProperties(imgData);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 40;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(imgData, 'PNG', 20, 20, pdfWidth, pdfHeight);
+      doc.save('comparativo_sondas.pdf');
+    }
+  </script>
+
+  <button onclick="exportToPDF()" style="margin-bottom:16px; padding:10px 20px; background:#2A9DF4; color:#fff; border:none; border-radius:4px; cursor:pointer; font-family:'Poppins', sans-serif; font-size:1em;">
+    Descargar comparativo como PDF
+  </button>
+
   <table class="table-comparativo">
     <caption>Comparativo de Sondas Ecográficas</caption>
     <thead>
@@ -83,12 +98,12 @@
         <td><strong>Lineal</strong></td>
         <td>7 – 18 (alta)</td>
         <td>3 – 6 (estrecha y recta)</td>
-        <td>1 – 4<br>(hasta 6 con menor frecuencia)</td>
+        <td>1 – 4 (hasta 6 con menor frecuencia)</td>
         <td>• Excelente resolución axial y lateral.<br>• Imagen nítida de estructuras superficiales.</td>
         <td>• Baja penetración en tejidos profundos.</td>
         <td>• Venas periféricas (cefálica, basílica, yugular externa).<br>• Guía precisa de catéteres periféricos y PICCs.<br>• Detección de trombos en venas superficiales.</td>
         <td>• Musculoesquelético (tendones, ligamentos).<br>• Tiroides y glándulas salivales.<br>• Biopsias superficiales.</td>
-        <td class="vis-cell"><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-16.png" alt="Visualización Lineal" class="vis-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-16.png" alt="Visualización Lineal" class="vis-img"></td>
       </tr>
       <tr>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/13.png" alt="Sonda Convexa" class="sonda-img"></td>
@@ -100,7 +115,7 @@
         <td>• Menor resolución para estructuras finas.</td>
         <td>• Accesos centrales profundos (subclavia, vena cava).<br>• Evaluación de anatomía torácica previa.</td>
         <td>• Ecografía abdominal y pélvica.<br>• Obstetricia y ginecología.<br>• Exploración hepática, renal y peritoneal.</td>
-        <td class="vis-cell"><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Convexa" class="vis-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Convexa" class="vis-img"></td>
       </tr>
       <tr>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/14.png" alt="Sonda Sectorial" class="sonda-img"></td>
@@ -112,7 +127,7 @@
         <td>• Resolución superficial reducida.</td>
         <td>• Punción en región infraclavicular o yugular interna.<br>• Control de posición de catéteres centrales en tórax.</td>
         <td>• Ecocardiografía.<br>• FAST abdominal y urgencias.<br>• Ecografía pediátrica transcraneal.</td>
-        <td class="vis-cell"><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-18.png" alt="Visualización Sectorial" class="vis-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-18.png" alt="Visualización Sectorial" class="vis-img"></td>
       </tr>
       <tr>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/15.png" alt="Sonda Microconvexa" class="sonda-img"></td>
@@ -124,7 +139,7 @@
         <td>• Campo de visión limitado vs convexa clásica.</td>
         <td>• Accesos neonatales y pediátricos.<br>• Guía en zonas anatómicas pequeñas.</td>
         <td>• Ecografía neonatal.<br>• Exploración transcraneal (fontanela).<br>• Intervencionismo en lactantes.</td>
-        <td class="vis-cell"><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Microconvexa" class="vis-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Microconvexa" class="vis-img"></td>
       </tr>
       <tr>
         <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/16.png" alt="Sonda Endocavitaria" class="sonda-img"></td>
@@ -136,11 +151,10 @@
         <td>• Uso especializado e invasivo.</td>
         <td>• No aplicable en accesos vasculares.</td>
         <td>• Ecografía transvaginal y transrectal.<br>• Biopsias guiadas gineco-urológicas.</td>
-        <td class="vis-cell"><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Endocavitaria" class="vis-img"></td>
+        <td><img src="https://somnozzz.cl/wp-content/uploads/2025/05/Agregar-un-subtitulo-17.png" alt="Visualización Endocavitaria" class="vis-img"></td>
       </tr>
     </tbody>
   </table>
-
   <p style="font-size:0.85em; color:#555; margin-top:8px;">
     * <strong>Huella:</strong> Superficie de contacto de la sonda sobre la piel, determina el espacio de ventana acústica disponible para la exploración.<br>
     * <strong>Frecuencia:</strong> Número de ciclos de onda emitidos por segundo; frecuencias altas ofrecen mayor resolución superficial y bajas permiten mayor penetración en tejidos profundos.
